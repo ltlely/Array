@@ -1,0 +1,55 @@
+/* Define a method named sortArray that takes an array of integers and the number of elements in the array as parameters. 
+Method sortArray() modifies the array parameter by sorting the elements in descending order (highest to lowest). Then write a main 
+program that reads a list of integers from input, stores the integers in an array, calls sortArray(), and outputs the sorted array. 
+The first input integer indicates how many numbers are in the list. Assume that the list will always contain less than 20 integers.
+
+Ex: If the input is:
+
+5 10 4 39 12 2
+
+the output is:
+
+39,12,10,4,2,
+
+For coding simplicity, follow every output value by a comma, including the last one.
+
+Your program must define and call the following method:
+public static void sortArray(int[] myArr, int arrSize) */
+
+import java.util.Scanner;
+
+public class LabProgram {
+
+   /* Define your method here */
+   public static void sortArray(int[] myArr, int arrSize) {
+      
+      int temp;
+        for (int i = 0; i < arrSize; ++i) {
+            for (int j = 0; j < arrSize - 1; ++j) {
+               if (myArr[j] < myArr[j + 1]) {
+                  temp = myArr[j];
+                  myArr[j] = myArr[j + 1];
+                  myArr[j + 1] = temp;
+            }
+         }
+      }
+   }
+   
+   public static void main(String[] args) {
+      /* Type your code here. */
+      Scanner scnr = new Scanner(System.in);
+      int[] numbers = new int[scnr.nextInt()];
+      
+      for (int i = 0; i < numbers.length; ++i) {
+         numbers[i] = scnr.nextInt();
+      }
+      sortArray(numbers, numbers.length);
+        
+      for (int i = 0; i < numbers.length; ++i) {
+         System.out.print(numbers[i] + ",");
+      }
+      
+      System.out.println();  
+      
+   }
+}
