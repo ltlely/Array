@@ -1,0 +1,64 @@
+import java.util.Scanner;
+public class ArrayExample1 {
+
+	public static void main(String[] args) {
+		Scanner keyboard = new Scanner(System.in);
+		
+		double [] tempArray = null; //don't know how big the scale it is yet. creating a reference to an array of doubles
+		
+		System.out.println("How many days would you like to track the temperature");
+		int numDays = keyboard.nextInt();
+		
+		if (numDays > 0) {
+			tempArray = new double[numDays];
+		}
+		else {
+			tempArray = new double[5];
+		}
+
+		for (int index = 0; index < tempArray.length; index++) {
+			System.out.println("What is the temperature for day " + (index + 1) + ":");
+			double currentTemperature = keyboard.nextDouble();
+			tempArray[index] = currentTemperature;
+		}
+		// double [] myArray = {2, 3, 5, 8} if you know the inputs, another way to declare an array
+		
+		//create a for loop to loop through the values in the array summing them
+		//and after the for loop ends, calculate and print the average
+		
+		double sum = 0.0;
+		for (int index = 0; index < tempArray.length; index++) {  //or use i instead of index
+			sum = sum + tempArray[index];
+		}
+		double average = sum/(double)tempArray.length;
+		System.out.println("The average is: " + average);
+		
+		//create a second for loop to loop through the values in the array and 
+		//find the highest value in the array and after the loop ends, print
+		//the highest value to the screen
+		
+		//linear search algorithm involves searching through the data structure
+		//one item at a time to find a specific value which often requires going through the entire data structure
+		double highestTemperature = tempArray[0];
+		for (int index = 1; index < tempArray.length; index++) {
+			if (tempArray[index] > highestTemperature) {
+				highestTemperature = tempArray[index];
+			}
+		}
+		
+		//create a third for loop to loop through the values in the array and
+		//find the lowest value in the array and after the loop ends, print
+		//the lowest value to the screen
+		
+		double lowestTemperature = tempArray[0];
+		for (int index = 1; index < tempArray.length; index++) {
+			if (tempArray[index] < lowestTemperature) {
+				lowestTemperature = tempArray[index];
+			}
+		}
+		System.out.println("The highest temperature: " + highestTemperature);
+		System.out.println("The lowest temperature: " + lowestTemperature);
+		
+	}
+
+}
