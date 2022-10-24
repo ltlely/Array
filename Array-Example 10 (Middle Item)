@@ -55,3 +55,18 @@ public class LabProgram {
    }
 }
 
+/*
+1) if you see a -1 then you stop reading in new numbers 
+if(newNumber < 0){
+        break;
+      }
+2)  if its not -1 then we add it to our array and increase the size variable by 1
+else if (newNumber >= 0 ){
+        userValues[size] = newNumber;
+        size++;
+      }
+3) If we have reached more than 8 numbers in our array, we cant do userValues[9] because that will give index out of bounds error, but we still want to keep counting the size so we do 
+if(size > 8){
+        size++;
+      }
+*/
